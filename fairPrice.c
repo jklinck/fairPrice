@@ -19,6 +19,8 @@ floor mats
 
 #include <stdio.h>
 
+void clearInput();
+
 int main()
 {
 
@@ -27,9 +29,10 @@ int main()
     printf("Please enter the MSRP: ");
     scanf("%lf", &msrp);
     while(msrp < 0){
-        while (getchar() != '\n');
+        clearInput();
         printf("Please enter the MSRP: ");
         scanf("%lf", &msrp);
+        clearInput();
     }
 
     double destinationFee;
@@ -37,9 +40,10 @@ int main()
     printf("Please enter the destination fee: ");
     scanf("%lf", &destinationFee);
     while(destinationFee < 0){
-        while (getchar() != '\n');
+        clearInput();
         printf("Please enter the destination fee: ");
         scanf("%lf", &destinationFee);
+        clearInput();
     }
 
     double addOns;
@@ -47,9 +51,10 @@ int main()
     printf("Please enter the total price of all add ons: ");
     scanf("%lf", &addOns);
     while(addOns < 0){
-        while (getchar() != '\n');
-         printf("Please enter the total price of all add ons: ");
-          scanf("%lf", &addOns);
+        clearInput();
+        printf("Please enter the total price of all add ons: ");
+        scanf("%lf", &addOns);
+        clearInput();
     }
 
     double invoice = msrp - (msrp * 0.0768);
@@ -67,3 +72,13 @@ int main()
     
     return 0;
 }
+
+void clearInput(){
+    int c;
+    while((c = getchar()) != '\n' && c != EOF);
+}
+
+
+
+
+
