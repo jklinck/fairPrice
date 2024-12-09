@@ -24,28 +24,32 @@ void clearInput();
 int main()
 {
 
+    /*
+    in the while loops I should also be checking if what the 
+    user intered is not a double
+    */
     double msrp; 
 
     printf("Please enter the MSRP: ");
     scanf("%lf", &msrp);
+    // check to make sure the user entered a number greater than 0
     while(msrp < 0){
         clearInput();
         printf("Please enter the MSRP: ");
         scanf("%lf", &msrp);
-        clearInput();
     }
 
+    clearInput(); // clear the input buffer
     double destinationFee;
-    // double destinationFee = 1000.0;
     printf("Please enter the destination fee: ");
     scanf("%lf", &destinationFee);
     while(destinationFee < 0){
         clearInput();
         printf("Please enter the destination fee: ");
         scanf("%lf", &destinationFee);
-        clearInput();
     }
 
+    clearInput(); // clear the input buffer
     double addOns;
     // double addOns = 600.0;
     printf("Please enter the total price of all add ons: ");
@@ -73,6 +77,7 @@ int main()
     return 0;
 }
 
+// function to clear the input buffer
 void clearInput(){
     int c;
     while((c = getchar()) != '\n' && c != EOF);
